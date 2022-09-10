@@ -1,7 +1,6 @@
 package com.demo.rental.service;
 
 import com.demo.rental.dao.entity.RentalOrder;
-import com.demo.rental.dao.mapper.RentalOrderMapper;
 import com.demo.rental.exception.BusinessException;
 import com.demo.rental.model.ro.ReserveRO;
 import com.demo.rental.model.vo.OrderVO;
@@ -34,7 +33,7 @@ public class CarReserveService {
             orderVO.setCarModel(rentalOrder.getCarModel());
             orderVO.setRentalStartDate(DateUtil.formatDate(rentalOrder.getRentalStartDate(), DateUtil.DEFAULT_DATE_STYLE));
             orderVO.setRentalEndDate(DateUtil.formatDate(rentalOrder.getRentalEndDate(), DateUtil.DEFAULT_DATE_STYLE));
-            orderVO.setReserveTime(DateUtil.formatDate(rentalOrder.getCreateTime(), DateUtil.DEFAULT_TIME_STYLE));
+            orderVO.setReservedTime(DateUtil.formatDate(rentalOrder.getCreateTime(), DateUtil.DEFAULT_TIME_STYLE));
 
             result.add(orderVO);
         }
