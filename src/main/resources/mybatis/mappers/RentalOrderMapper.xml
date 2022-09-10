@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.rental.dao.mapper.RentalOrderMapper">
+    <resultMap id="BaseResultMap" type="com.demo.rental.dao.entity.RentalOrder">
+        <id column="rental_order_id" jdbcType="INTEGER" property="rentalOrderId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="car_id" jdbcType="INTEGER" property="carId"/>
+        <result column="rental_start_time" jdbcType="BIGINT" property="rentalStartTime"/>
+        <result column="rental_end_time" jdbcType="BIGINT" property="rentalEndTime"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        rental_order_id, user_id, car_id, rental_start_time, rental_end_time, create_time,
+        update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_rental_order
+        where rental_order_id = #{rentalOrderId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from t_rental_order
+        where rental_order_id = #{rentalOrderId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.demo.rental.dao.entity.RentalOrder">
+        insert into t_rental_order (rental_order_id, user_id, car_id,
+        rental_start_time, rental_end_time, create_time,
+        update_time)
+        values (#{rentalOrderId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{carId,jdbcType=INTEGER},
+        #{rentalStartTime,jdbcType=BIGINT}, #{rentalEndTime,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP},
+        #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.demo.rental.dao.entity.RentalOrder">
+        insert into t_rental_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="rentalOrderId != null">
+                rental_order_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="carId != null">
+                car_id,
+            </if>
+            <if test="rentalStartTime != null">
+                rental_start_time,
+            </if>
+            <if test="rentalEndTime != null">
+                rental_end_time,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="rentalOrderId != null">
+                #{rentalOrderId,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="carId != null">
+                #{carId,jdbcType=INTEGER},
+            </if>
+            <if test="rentalStartTime != null">
+                #{rentalStartTime,jdbcType=BIGINT},
+            </if>
+            <if test="rentalEndTime != null">
+                #{rentalEndTime,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.demo.rental.dao.entity.RentalOrder">
+        update t_rental_order
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="carId != null">
+                car_id = #{carId,jdbcType=INTEGER},
+            </if>
+            <if test="rentalStartTime != null">
+                rental_start_time = #{rentalStartTime,jdbcType=BIGINT},
+            </if>
+            <if test="rentalEndTime != null">
+                rental_end_time = #{rentalEndTime,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where rental_order_id = #{rentalOrderId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.demo.rental.dao.entity.RentalOrder">
+        update t_rental_order
+        set user_id = #{userId,jdbcType=INTEGER},
+        car_id = #{carId,jdbcType=INTEGER},
+        rental_start_time = #{rentalStartTime,jdbcType=BIGINT},
+        rental_end_time = #{rentalEndTime,jdbcType=BIGINT},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where rental_order_id = #{rentalOrderId,jdbcType=INTEGER}
+    </update>
+</mapper>
