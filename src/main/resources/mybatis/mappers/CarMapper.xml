@@ -157,4 +157,13 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP}
         where car_id = #{carId,jdbcType=INTEGER}
     </update>
+
+    <select id="selectCarAndRentalInfo" parameterType="com.demo.rental.dao.join.CarAndRentalInfo">
+
+        select car.car_id, car.car_name, order.rental_start_date, order.rental_end_date
+        from t_car as car left join t_rental_order as order
+        on car.car_id = order.car_id
+        where order.rental_end_date >= CURRENT_DATE()
+
+    </select>
 </mapper>

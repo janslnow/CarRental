@@ -1,7 +1,11 @@
 package com.demo.rental.dao.mapper;
 
 import com.demo.rental.dao.entity.Car;
+import com.demo.rental.dao.join.CarAndRentalInfo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface CarMapper {
@@ -16,4 +20,6 @@ public interface CarMapper {
     int updateByPrimaryKeySelective(Car record);
 
     int updateByPrimaryKey(Car record);
+
+    List<CarAndRentalInfo> selectCarAndRentalInfo();
 }

@@ -9,7 +9,7 @@ public class CarVO {
 
     private Integer carId;
 
-    private String carName;
+    private String carModel;
 
-    private List<CarReserveTimeVO> reservedTimePeriod;
+    private List<CarReserveDateVO> reservedDatePeriod;
 }

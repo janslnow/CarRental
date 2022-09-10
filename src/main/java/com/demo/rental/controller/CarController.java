@@ -18,17 +18,6 @@ public class CarController {
 
     private final CarService carService;
 
-    @GetMapping("/{carId}")
-    public HttpResult<CarVO> getCarInfo(@PathVariable Integer carId) {
-
-        if (carId == null) {
-            return HttpResult.success(carService.getCarInfo(carId));
-        } else {
-            throw new RuntimeException();
-        }
-
-    }
-
     @GetMapping("/")
     public HttpResult<List<CarVO>> getAllCarInfo() {
         return HttpResult.success(carService.getAllCarInfo());
