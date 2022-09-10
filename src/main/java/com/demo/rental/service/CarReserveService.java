@@ -1,9 +1,12 @@
 package com.demo.rental.service;
 
-import com.demo.rental.model.ro.RentalReserveRO;
+import com.demo.rental.model.ro.ReserveRO;
+import com.demo.rental.model.vo.CarVO;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Slf4j
 @Service
@@ -11,19 +14,14 @@ import org.springframework.stereotype.Service;
 public class CarReserveService {
 
 
-    public void getAllReserveRecordByUserId(String userId) {
+    public List<CarVO> getAllReserveRecordByUserId(String userId) {
 
 
+        return null;
     }
 
     public void reserveCar(String userId,
-                           RentalReserveRO rentalReserveRO) {
-
-
-    }
-
-    public void cancelReserveCar(String userId,
-                                 Integer recordId) {
+                           ReserveRO reserveRO) {
 
 
     }

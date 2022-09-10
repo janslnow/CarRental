@@ -1,7 +1,7 @@
 package com.demo.rental.controller;
 
 import com.demo.rental.model.HttpResult;
-import com.demo.rental.model.ro.RentalReserveRO;
+import com.demo.rental.model.ro.ReserveRO;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Delete;
@@ -22,7 +22,7 @@ public class CarReserveController {
     }
 
     @PostMapping("/")
-    public HttpResult<?> reserveCar(@RequestBody RentalReserveRO rentalReserveRO) {
+    public HttpResult<?> reserveCar(@RequestBody ReserveRO reserveRO) {
 
         return null;
     }

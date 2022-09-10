@@ -2,6 +2,8 @@ package com.demo.rental.model.vo;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class CarVO {
 
@@ -9,6 +11,5 @@ public class CarVO {
 
     private String carName;
 
-    private Integer carStock;
-
+    private List<CarReserveTimeVO> reservedTimePeriod;
 }
