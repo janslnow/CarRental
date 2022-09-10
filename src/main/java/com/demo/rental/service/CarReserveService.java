@@ -1,6 +1,7 @@
 package com.demo.rental.service;
 
 import com.demo.rental.dao.entity.RentalOrder;
+import com.demo.rental.dao.mapper.RentalOrderMapper;
 import com.demo.rental.exception.BusinessException;
 import com.demo.rental.model.ro.ReserveRO;
 import com.demo.rental.model.vo.OrderVO;

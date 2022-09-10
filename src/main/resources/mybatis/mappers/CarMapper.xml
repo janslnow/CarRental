@@ -80,14 +80,6 @@
         where car_id = #{carId,jdbcType=INTEGER}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="com.demo.rental.dao.entity.Car">
-        update t_car
-        set car_model = #{carModel,jdbcType=VARCHAR},
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-        update_time = #{updateTime,jdbcType=TIMESTAMP}
-        where car_id = #{carId,jdbcType=INTEGER}
-    </update>
-
     <select id="selectCarAndRentalInfo" parameterType="com.demo.rental.dao.join.CarAndRentalInfo">
 
         select car.car_id, car.car_name, order.rental_start_date, order.rental_end_date
