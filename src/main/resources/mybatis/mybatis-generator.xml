@@ -25,7 +25,7 @@
         </javaTypeResolver>
 
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.demo.rental.dao.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.demo.rental.dao.entity" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -36,17 +36,21 @@
         </sqlMapGenerator>
 
         <!-- 生成DAO的包名和位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.demo.rental.dao.mapper"
+                             targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-        <table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"
+        <table tableName="t_car" domainObjectName="Car" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="useActualColumnNames" value="false"/>
-            <!-- 数据库表主键 -->
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
+
+        <table tableName="t_rental_order" domainObjectName="RentalOrder" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
     </context>
 
 </generatorConfiguration>

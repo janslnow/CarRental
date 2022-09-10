@@ -1,4 +1,4 @@
-create table car(
+create table t_car(
     `car_id` int not null auto_increment comment 'primary key ID',
     `car_model` varchar(64) not null comment 'car model',
     `create_time` DATETIME not null DEFAULT CURRENT_TIMESTAMP comment 'create time',
@@ -8,9 +8,9 @@ create table car(
 COMMENT='car info'
 ENGINE=InnoDB;
 
-insert into car(`car_model`) values ('Toyota Camry'), ('Toyota Camry'), ('BMW 650'), ('BMW 650');
+insert into t_car(`car_model`) values ('Toyota Camry'), ('Toyota Camry'), ('BMW 650'), ('BMW 650');
 
-create table rental_order (
+create table t_rental_order (
     `rental_order_id` int not null auto_increment comment 'primary key ID',
     `user_id` int not null comment 'user of order',
     `car_id` int not null comment 'car of order',
