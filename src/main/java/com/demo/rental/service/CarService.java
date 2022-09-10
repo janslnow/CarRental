@@ -42,8 +42,8 @@ public class CarService {
                             .filter(carAndRentalInfo -> carAndRentalInfo.getRentalStartDate() != null)
                             .map(carAndRentalInfo -> {
                                 CarReserveDateVO carReserveDateVO = new CarReserveDateVO();
-                                carReserveDateVO.setStartDate(DateUtil.formatDate(carAndRentalInfo.getRentalStartDate()));
-                                carReserveDateVO.setEndDate(DateUtil.formatDate(carAndRentalInfo.getRentalEndDate()));
+                                carReserveDateVO.setStartDate(DateUtil.formatDate(carAndRentalInfo.getRentalStartDate(), DateUtil.DEFAULT_DATE_STYLE));
+                                carReserveDateVO.setEndDate(DateUtil.formatDate(carAndRentalInfo.getRentalEndDate(), DateUtil.DEFAULT_DATE_STYLE));
 
                                 return carReserveDateVO;
                             })

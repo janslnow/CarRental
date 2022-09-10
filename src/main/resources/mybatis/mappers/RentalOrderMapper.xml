@@ -229,4 +229,21 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP}
         where rental_order_id = #{rentalOrderId,jdbcType=INTEGER}
     </update>
+
+    <select id="selectByUserId" parameterType="com.demo.rental.dao.entity.RentalOrder">
+
+        select order.*, car.car_model
+        from t_rental_order as order inner join t_car as car
+        where order.user_id = #{userId}
+
+    </select>
+
+    <select id="selectRepeatDateForUpdate" parameterType="java.lang.Integer">
+
+        select count(*)
+        from t_rental_order
+        where rental_start_date &lt;= #{endDate} and rental_end_date >= #{startDate}
+        for update
+
+    </select>
 </mapper>

@@ -9,6 +9,8 @@ public class RentalOrder {
 
     private Integer carId;
 
+    private String carModel;
+
     private Date rentalStartDate;
 
     private Date rentalEndDate;
@@ -23,6 +25,14 @@ public class RentalOrder {
 
     public void setRentalOrderId(Integer rentalOrderId) {
         this.rentalOrderId = rentalOrderId;
+    }
+
+    public String getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
     }
 
     public Integer getUserId() {
