@@ -1,3 +1,5 @@
+use `car-rental`;
+
 create table t_car(
     `car_id` int not null auto_increment comment 'primary key ID',
     `car_model` varchar(64) not null comment 'car model',
