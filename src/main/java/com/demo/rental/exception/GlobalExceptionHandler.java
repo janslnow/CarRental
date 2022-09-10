@@ -1,5 +1,6 @@
 package com.demo.rental.exception;
 
+import com.demo.rental.common.UserContext;
 import com.demo.rental.model.HttpResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class GlobalExceptionHandler {
 
         String url = request.getRequestURL().toString();
 
-        log.error("系统系统: url:{}", url, e);
+        log.error("系统系统: url:{}, user:{}", url, UserContext.getUserId(), e);
 
         return ResponseEntity.status(SYSTEM_EXCEPTION).body(HttpResult.fail(e.getMessage()));
     }
@@ -34,7 +35,7 @@ public class GlobalExceptionHandler {
 
         String url = request.getRequestURL().toString();
 
-        log.error("系统系统: url:{}", url, e);
+        log.error("系统系统: url:{}, user:{}", url, UserContext.getUserId(), e);
 
         return ResponseEntity.status(BUSINESS_EXCEPTION).body(HttpResult.fail(e.getMessage()));
     }
