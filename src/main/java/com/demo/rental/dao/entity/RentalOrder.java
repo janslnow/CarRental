@@ -9,9 +9,9 @@ public class RentalOrder {
 
     private Integer carId;
 
-    private Long rentalStartTime;
+    private Date rentalStartDate;
 
-    private Long rentalEndTime;
+    private Date rentalEndDate;
 
     private Date createTime;
 
@@ -41,20 +41,20 @@ public class RentalOrder {
         this.carId = carId;
     }
 
-    public Long getRentalStartTime() {
-        return rentalStartTime;
+    public Date getRentalStartDate() {
+        return rentalStartDate;
     }
 
-    public void setRentalStartTime(Long rentalStartTime) {
-        this.rentalStartTime = rentalStartTime;
+    public void setRentalStartDate(Date rentalStartDate) {
+        this.rentalStartDate = rentalStartDate;
     }
 
-    public Long getRentalEndTime() {
-        return rentalEndTime;
+    public Date getRentalEndDate() {
+        return rentalEndDate;
     }
 
-    public void setRentalEndTime(Long rentalEndTime) {
-        this.rentalEndTime = rentalEndTime;
+    public void setRentalEndDate(Date rentalEndDate) {
+        this.rentalEndDate = rentalEndDate;
     }
 
     public Date getCreateTime() {
