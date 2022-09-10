@@ -79,77 +79,7 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP}
         where car_id = #{carId,jdbcType=INTEGER}
     </update>
-    <resultMap id="BaseResultMap" type="com.demo.rental.dao.entity.Car">
-        <id column="car_id" jdbcType="INTEGER" property="carId"/>
-        <result column="car_model" jdbcType="VARCHAR" property="carModel"/>
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
-    </resultMap>
-    <sql id="Base_Column_List">
-        car_id, car_model, create_time, update_time
-    </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from t_car
-        where car_id = #{carId,jdbcType=INTEGER}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete from t_car
-        where car_id = #{carId,jdbcType=INTEGER}
-    </delete>
-    <insert id="insert" parameterType="com.demo.rental.dao.entity.Car">
-        insert into t_car (car_id, car_model, create_time,
-        update_time)
-        values (#{carId,jdbcType=INTEGER}, #{carModel,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
-        #{updateTime,jdbcType=TIMESTAMP})
-    </insert>
-    <insert id="insertSelective" parameterType="com.demo.rental.dao.entity.Car">
-        insert into t_car
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="carId != null">
-                car_id,
-            </if>
-            <if test="carModel != null">
-                car_model,
-            </if>
-            <if test="createTime != null">
-                create_time,
-            </if>
-            <if test="updateTime != null">
-                update_time,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="carId != null">
-                #{carId,jdbcType=INTEGER},
-            </if>
-            <if test="carModel != null">
-                #{carModel,jdbcType=VARCHAR},
-            </if>
-            <if test="createTime != null">
-                #{createTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="updateTime != null">
-                #{updateTime,jdbcType=TIMESTAMP},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.demo.rental.dao.entity.Car">
-        update t_car
-        <set>
-            <if test="carModel != null">
-                car_model = #{carModel,jdbcType=VARCHAR},
-            </if>
-            <if test="createTime != null">
-                create_time = #{createTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=TIMESTAMP},
-            </if>
-        </set>
-        where car_id = #{carId,jdbcType=INTEGER}
-    </update>
+
     <update id="updateByPrimaryKey" parameterType="com.demo.rental.dao.entity.Car">
         update t_car
         set car_model = #{carModel,jdbcType=VARCHAR},

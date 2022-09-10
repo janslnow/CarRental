@@ -3,7 +3,6 @@ package com.demo.rental.dao.mapper;
 import com.demo.rental.dao.entity.RentalOrder;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 

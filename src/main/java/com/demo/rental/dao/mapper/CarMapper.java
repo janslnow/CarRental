@@ -3,7 +3,6 @@ package com.demo.rental.dao.mapper;
 import com.demo.rental.dao.entity.Car;
 import com.demo.rental.dao.join.CarAndRentalInfo;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
