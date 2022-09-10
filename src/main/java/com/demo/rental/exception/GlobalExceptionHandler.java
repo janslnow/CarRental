@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
 
         String url = request.getRequestURL().toString();
 
-        log.error("系统系统: url:{}, user:{}", url, UserContext.getUserId(), e);
+        log.error("system exception: url:{}, user:{}", url, UserContext.getUserId(), e);
 
         return ResponseEntity.status(SYSTEM_EXCEPTION).body(HttpResult.fail(e.getMessage()));
     }
@@ -35,7 +35,7 @@ public class GlobalExceptionHandler {
 
         String url = request.getRequestURL().toString();
 
-        log.error("系统系统: url:{}, user:{}", url, UserContext.getUserId(), e);
+        log.error("business exception: url:{}, user:{}", url, UserContext.getUserId(), e);
 
         return ResponseEntity.status(BUSINESS_EXCEPTION).body(HttpResult.fail(e.getMessage()));
     }
