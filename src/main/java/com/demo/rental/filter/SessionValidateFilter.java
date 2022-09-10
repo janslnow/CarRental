@@ -14,13 +14,13 @@ import java.io.IOException;
 @WebFilter(urlPatterns = {"/api/*"}, filterName = "sessionValidateFilter")
 public class SessionValidateFilter implements Filter {
 
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
-        //this web demo don't implement login function;
-        //so all request use a test user info for test;
-        //generally we need valid the session of request in this position then ;
+        /*
+        this web demo don't implement login, so all request use a test user info for test.
+        generally we need valid the session of request in this position.
+        */
         User user = new User();
         user.setUserId(1);
         user.setUserName("Demo Test User");
