@@ -43,7 +43,7 @@ public class CarReserveService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void reserveCar(Integer userId,
+    public Integer reserveCar(Integer userId,
                            ReserveRO reserveRO) {
 
         int repeatDateCount = rentalOrderMapper.selectRepeatDateForUpdate(reserveRO.getRentalStartDate(), reserveRO.getRentalEndDate());
@@ -51,13 +51,14 @@ public class CarReserveService {
         if (repeatDateCount > 0) {
             throw new BusinessException();
         } else {
+
             RentalOrder rentalOrder = new RentalOrder();
             rentalOrder.setCarId(reserveRO.getCarId());
             rentalOrder.setRentalStartDate(DateUtil.parseDate(reserveRO.getRentalStartDate(), DateUtil.DEFAULT_DATE_STYLE));
             rentalOrder.setRentalEndDate(DateUtil.parseDate(reserveRO.getRentalEndDate(), DateUtil.DEFAULT_DATE_STYLE));
             rentalOrder.setUserId(userId);
 
-            rentalOrderMapper.insertSelective(rentalOrder);
+            return rentalOrderMapper.insertSelective(rentalOrder);
         }
 
     }

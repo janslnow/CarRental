@@ -32,7 +32,8 @@
         #{rentalStartDate,jdbcType=DATE}, #{rentalEndDate,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP},
         #{updateTime,jdbcType=TIMESTAMP})
     </insert>
-    <insert id="insertSelective" parameterType="com.demo.rental.dao.entity.RentalOrder">
+    <insert id="insertSelective" parameterType="com.demo.rental.dao.entity.RentalOrder" useGeneratedKeys="true"
+            keyProperty="rentalOrderId">
         insert into t_rental_order
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="rentalOrderId != null">
