@@ -2,7 +2,7 @@ package com.demo.rental.service;
 
 import com.demo.rental.dao.join.CarAndRentalInfo;
 import com.demo.rental.dao.mapper.CarMapper;
-import com.demo.rental.model.vo.CarReserveDateVO;
+import com.demo.rental.model.vo.CarReservedDateVO;
 import com.demo.rental.model.vo.CarVO;
 import com.demo.rental.util.DateUtil;
 import lombok.AllArgsConstructor;
@@ -36,23 +36,23 @@ public class CarService {
             Integer carId = entry.getKey();
             List<CarAndRentalInfo> reservedCarDateList = entry.getValue();
             String carModel = reservedCarDateList.get(0).getCarModel();
-            List<CarReserveDateVO> carReserveDateVOList =
+            List<CarReservedDateVO> carReservedDateVOList =
                     reservedCarDateList
                             .stream()
                             .filter(carAndRentalInfo -> carAndRentalInfo.getRentalStartDate() != null)
                             .map(carAndRentalInfo -> {
-                                CarReserveDateVO carReserveDateVO = new CarReserveDateVO();
-                                carReserveDateVO.setStartDate(DateUtil.formatDate(carAndRentalInfo.getRentalStartDate(), DateUtil.DEFAULT_DATE_STYLE));
-                                carReserveDateVO.setEndDate(DateUtil.formatDate(carAndRentalInfo.getRentalEndDate(), DateUtil.DEFAULT_DATE_STYLE));
+                                CarReservedDateVO carReservedDateVO = new CarReservedDateVO();
+                                carReservedDateVO.setRentalStartDate(DateUtil.formatDate(carAndRentalInfo.getRentalStartDate(), DateUtil.DEFAULT_DATE_STYLE));
+                                carReservedDateVO.setRentalEndDate(DateUtil.formatDate(carAndRentalInfo.getRentalEndDate(), DateUtil.DEFAULT_DATE_STYLE));
 
-                                return carReserveDateVO;
+                                return carReservedDateVO;
                             })
                             .collect(Collectors.toList());
 
             CarVO carVO = new CarVO();
             carVO.setCarId(carId);
             carVO.setCarModel(carModel);
-            carVO.setReservedDatePeriod(carReserveDateVOList);
+            carVO.setReservedDatePeriod(carReservedDateVOList);
 
             result.add(carVO);
         }

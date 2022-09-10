@@ -2,6 +2,7 @@ package com.demo.rental.model.ro;
 
 import com.demo.rental.exception.BusinessException;
 import com.demo.rental.util.DateUtil;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.Date;
@@ -9,10 +10,13 @@ import java.util.Date;
 @Data
 public class ReserveRO {
 
+    @ApiModelProperty(value = "the reserved car id", required = true)
     private Integer carId;
 
+    @ApiModelProperty(value = "start day", required = true)
     private String rentalStartDate;
 
+    @ApiModelProperty(value = "end day", required = true)
     private String rentalEndDate;
 
     public void validate() {

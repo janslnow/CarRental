@@ -1,20 +1,27 @@
 package com.demo.rental.model.vo;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
 public class OrderVO {
 
+    @ApiModelProperty("order id.")
     private Integer orderId;
 
+    @ApiModelProperty("carId of the order")
     private Integer carId;
 
+    @ApiModelProperty("carModel of the order")
     private String carModel;
 
-    private String startDate;
+    @ApiModelProperty("the day when use start to use car")
+    private String rentalStartDate;
 
-    private String endDate;
+    @ApiModelProperty("the day when user need to return car")
+    private String rentalEndDate;
 
-    private String reserveTime;
+    @ApiModelProperty("the time when user reserve car")
+    private String reservedTime;
 
 }

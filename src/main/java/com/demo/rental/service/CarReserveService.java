@@ -32,8 +32,8 @@ public class CarReserveService {
             orderVO.setOrderId(rentalOrder.getRentalOrderId());
             orderVO.setCarId(rentalOrder.getCarId());
             orderVO.setCarModel(rentalOrder.getCarModel());
-            orderVO.setStartDate(DateUtil.formatDate(rentalOrder.getRentalStartDate(), DateUtil.DEFAULT_DATE_STYLE));
-            orderVO.setEndDate(DateUtil.formatDate(rentalOrder.getRentalEndDate(), DateUtil.DEFAULT_DATE_STYLE));
+            orderVO.setRentalStartDate(DateUtil.formatDate(rentalOrder.getRentalStartDate(), DateUtil.DEFAULT_DATE_STYLE));
+            orderVO.setRentalEndDate(DateUtil.formatDate(rentalOrder.getRentalEndDate(), DateUtil.DEFAULT_DATE_STYLE));
             orderVO.setReserveTime(DateUtil.formatDate(rentalOrder.getCreateTime(), DateUtil.DEFAULT_TIME_STYLE));
 
             result.add(orderVO);
