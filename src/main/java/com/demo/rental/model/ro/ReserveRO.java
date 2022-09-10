@@ -18,19 +18,19 @@ public class ReserveRO {
     public void validate() {
 
         if (carId == null) {
-            throw new BusinessException();
+            throw new BusinessException("param:carId don't set");
         }
 
         Date current = new Date();
         Date rentalStartTimeObject = DateUtil.parseDate(rentalStartDate, DateUtil.DEFAULT_DATE_STYLE);
         Date rentalEndTimeObject = DateUtil.parseDate(rentalEndDate, DateUtil.DEFAULT_DATE_STYLE);
 
-        if (current.after(rentalStartTimeObject)) {
-            // 开始时间必须大于当前时间;
+        if (current.getTime() > rentalStartTimeObject.getTime()) {
+            throw new BusinessException("rental start date can't less than current date");
         }
 
-        if (rentalStartTimeObject.after(rentalEndTimeObject)) {
-            // 结束时间必须大于开始时间;
+        if (rentalStartTimeObject.getTime() > rentalEndTimeObject.getTime()) {
+            throw new BusinessException("rental end date can't less than rental start date");
         }
 
     }

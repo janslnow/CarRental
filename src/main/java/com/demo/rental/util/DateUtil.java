@@ -21,7 +21,7 @@ public class DateUtil {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat(style);
                 return simpleDateFormat.parse(dateString);
             } catch (ParseException e) {
-                throw new BusinessException();
+                throw new BusinessException("time style error");
             }
         }
     }
