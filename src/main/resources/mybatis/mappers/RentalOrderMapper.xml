@@ -131,7 +131,7 @@
         select t_rental_order.*, t_car.car_model
         from t_rental_order inner join t_car on t_rental_order.car_id = t_car.car_id
         where t_rental_order.user_id = #{userId}
-        order by t_rental_order.order_id desc
+        order by t_rental_order.rental_order_id desc
 
     </select>
 
