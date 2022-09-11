@@ -1,5 +1,6 @@
 package com.demo.rental.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
@@ -8,9 +9,12 @@ public class HttpResult<T> {
     public static final int success = 200;
     public static final int fail = 110;
 
+    @ApiModelProperty("status code. 200:success, 110:fail")
     private Integer code;
     private String message;
     private Long serverTime;
+
+    @ApiModelProperty("data")
     private T data;
 
     private HttpResult() {
