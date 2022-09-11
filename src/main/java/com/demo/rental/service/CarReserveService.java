@@ -65,7 +65,9 @@ public class CarReserveService {
             rentalOrder.setRentalEndDate(DateUtil.parseDate(reserveRO.getRentalEndDate(), DateUtil.DEFAULT_DATE_STYLE));
             rentalOrder.setUserId(userId);
 
-            return rentalOrderMapper.insertSelective(rentalOrder);
+            rentalOrderMapper.insertSelective(rentalOrder);
+
+            return rentalOrder.getRentalOrderId();
         }
 
     }
