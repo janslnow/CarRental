@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -35,6 +36,8 @@ public class CarService {
             result.add(transferToCarVO(entry));
         }
 
+        result.sort(Comparator.comparing(CarVO::getCarId));
+
         return result;
     }
 
@@ -57,7 +60,7 @@ public class CarService {
 
         return reservedCarDateList
                 .stream()
-                .filter(carAndRentalInfo -> carAndRentalInfo.getRentalStartDate() != null)
+                .filter(carAndRentalInfo -> carAndRentalInfo.getRentalStartDate() != null && carAndRentalInfo.getRentalEndDate() != null)
                 .map(carAndRentalInfo -> {
 
                     CarReservedDateVO carReservedDateVO = new CarReservedDateVO();
@@ -66,6 +69,7 @@ public class CarService {
 
                     return carReservedDateVO;
                 })
+                .sorted(Comparator.comparing(CarReservedDateVO::getRentalStartDate))
                 .collect(Collectors.toList());
 
     }
