@@ -5,7 +5,7 @@
 This service is a simple rental car booking API service for customers to reserve a car for a period of time.
 
 Everyone can reserve car, but user only can choose a period that someone else didn't reserve in a same car. When use
-choose a car for a period that conflict with reserved period, it will tip 'reserve fail'
+choose a car for a period that conflict with reserved period, it will tip 'reserve fail'.
 
 ### Demo
 
