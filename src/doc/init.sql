@@ -22,7 +22,8 @@ create table t_rental_order (
     `rental_end_date` DATE not null comment 'the day of return car',
     `create_time` DATETIME not null DEFAULT CURRENT_TIMESTAMP comment 'create time',
     `update_time` DATETIME not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'update time',
-    primary key (`rental_order_id`)
+    primary key (`rental_order_id`),
+    index `index_date` (`rental_start_date`, `rental_end_date`)
 )
 COMMENT='order info'
 ENGINE=InnoDB;
