@@ -1,13 +1,14 @@
 ## Car Rental Reverse Api Service
 
 ### Summary
-This service is a simple rental car booking API service for customers 
-to reserve a car for a period of time.
 
-Everyone can reserve car, but user only can choose a period that someone else didn't reserve in a same car.
-When use choose a car for a period that conflict with reserved period, it will tip 'reserve fail'
+This service is a simple rental car booking API service for customers to reserve a car for a period of time.
+
+Everyone can reserve car, but user only can choose a period that someone else didn't reserve in a same car. When use
+choose a car for a period that conflict with reserved period, it will tip 'reserve fail'
 
 ### Demo
+
 Note: this web demo don't implement login action, so everyone who use this demo will use a same test account.
 
 ### Technology stack
@@ -16,35 +17,44 @@ Note: this web demo don't implement login action, so everyone who use this demo 
 * Language: Java
 * Framework: SpringMVC, SpringBoot, Mybatis
 * Database: MySQL
+* Package Management: Maven
 
 ### Api Document
 
 this service include three api implement;
 
-#### 1. get all car info;
+#### 1. Get all car info;
 
 ##### URI
+
 GET /api/cars/v1
 
 ##### purpose
+
 Client get all car basic info and reserved period of this car;
 
-#### 2. get all reserve order info;
+#### 2. Get all reserve order info;
 
 ##### URI
+
 GET /api/reserved-orders/v1
 
 ##### purpose
+
 Client query reserved order entry by user id;
 
-#### 3. reserve car
+#### 3. Reserve a car for a few day
+
+##### URI
+
 POST /api/reserved-orders/v1
 
 ##### purpose
+
 User reserve a car for a few days.
 
-
 ### Database table
+
 ```
 use `car-rental`;
 
