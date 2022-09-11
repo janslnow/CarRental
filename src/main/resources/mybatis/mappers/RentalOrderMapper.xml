@@ -10,6 +10,16 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
+    <resultMap id="OrderDetailResultMap" type="com.demo.rental.dao.entity.RentalOrder">
+        <id column="rental_order_id" jdbcType="INTEGER" property="rentalOrderId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="car_id" jdbcType="INTEGER" property="carId"/>
+        <result column="car_model" jdbcType="VARCHAR" property="carModel"/>
+        <result column="rental_start_date" jdbcType="DATE" property="rentalStartDate"/>
+        <result column="rental_end_date" jdbcType="DATE" property="rentalEndDate"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
     <sql id="Base_Column_List">
         rental_order_id, user_id, car_id, rental_start_date, rental_end_date, create_time,
         update_time
@@ -116,15 +126,15 @@
         where rental_order_id = #{rentalOrderId,jdbcType=INTEGER}
     </update>
 
-    <select id="selectByUserId" parameterType="com.demo.rental.dao.entity.RentalOrder">
+    <select id="selectByUserId" resultMap="OrderDetailResultMap">
 
-        select order.*, car.car_model
-        from t_rental_order as order inner join t_car as car
-        where order.user_id = #{userId}
+        select t_rental_order.*, t_car.car_model
+        from t_rental_order inner join t_car on t_rental_order.car_id = t_car.car_id
+        where t_rental_order.user_id = #{userId}
 
     </select>
 
-    <select id="selectRepeatDateForUpdate" parameterType="java.lang.Integer">
+    <select id="selectRepeatDateForUpdate" resultType="java.lang.Integer">
 
         select count(*)
         from t_rental_order

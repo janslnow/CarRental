@@ -14,12 +14,12 @@ import java.util.List;
 @Api(tags = "car info api")
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api/v1/cars")
+@RequestMapping("/api/cars")
 public class CarController {
 
     private final CarService carService;
 
-    @GetMapping("/")
+    @GetMapping("/v1")
     public HttpResult<List<CarVO>> getAllCarInfo() {
         return HttpResult.success(carService.getAllCarInfo());
     }

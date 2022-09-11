@@ -7,6 +7,13 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
+
+    <resultMap id="CarAndRentalInfoResultMap" type="com.demo.rental.dao.join.CarAndRentalInfo">
+        <id column="car_id" jdbcType="INTEGER" property="carId"/>
+        <result column="car_model" jdbcType="VARCHAR" property="carModel"/>
+        <result column="rental_start_date" jdbcType="DATE" property="rentalStartDate"/>
+        <result column="rental_end_date" jdbcType="DATE" property="rentalEndDate"/>
+    </resultMap>
     <sql id="Base_Column_List">
         car_id, car_model, create_time, update_time
     </sql>
@@ -80,12 +87,12 @@
         where car_id = #{carId,jdbcType=INTEGER}
     </update>
 
-    <select id="selectCarAndRentalInfo" parameterType="com.demo.rental.dao.join.CarAndRentalInfo">
+    <select id="selectCarAndRentalInfo" resultMap="CarAndRentalInfoResultMap">
 
-        select car.car_id, car.car_name, order.rental_start_date, order.rental_end_date
-        from t_car as car left join t_rental_order as order
-        on car.car_id = order.car_id
-        where order.rental_end_date >= CURRENT_DATE()
+        select t_car.car_id, t_car.car_model, t_rental_order.rental_start_date, t_rental_order.rental_end_date
+        from t_car left join t_rental_order
+        on t_car.car_id = t_rental_order.car_id
+        where t_rental_order.rental_end_date is null or t_rental_order.rental_end_date >= CURRENT_DATE()
 
     </select>
 </mapper>
