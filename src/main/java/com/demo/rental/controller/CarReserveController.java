@@ -31,6 +31,8 @@ public class CarReserveController {
     @PostMapping("/v1")
     @ApiOperation("reserve a car")
     public HttpResult<Integer> reserveCar(@RequestBody ReserveRO reserveRO) {
+        reserveRO.validate();
+
         return HttpResult.success(carReserveService.reserveCar(UserContext.getUserId(), reserveRO));
     }
 
