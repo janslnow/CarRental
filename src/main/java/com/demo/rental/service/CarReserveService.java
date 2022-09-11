@@ -1,6 +1,8 @@
 package com.demo.rental.service;
 
+import com.demo.rental.dao.entity.Car;
 import com.demo.rental.dao.entity.RentalOrder;
+import com.demo.rental.dao.mapper.CarMapper;
 import com.demo.rental.dao.mapper.RentalOrderMapper;
 import com.demo.rental.exception.BusinessException;
 import com.demo.rental.model.ro.ReserveRO;
@@ -20,6 +22,7 @@ import java.util.List;
 public class CarReserveService {
 
     private final RentalOrderMapper rentalOrderMapper;
+    private final CarMapper carMapper;
 
     public List<OrderVO> getAllReserveOrderByUserId(Integer userId) {
 
@@ -44,10 +47,14 @@ public class CarReserveService {
 
     @Transactional(rollbackFor = Exception.class)
     public Integer reserveCar(Integer userId,
-                           ReserveRO reserveRO) {
+                              ReserveRO reserveRO) {
+
+        Car exist = carMapper.selectByPrimaryKey(reserveRO.getCarId());
+        if (exist == null) {
+            throw new BusinessException("don't find the car of carId:" + reserveRO.getCarId());
+        }
 
         int repeatDateCount = rentalOrderMapper.selectRepeatDateForUpdate(reserveRO.getRentalStartDate(), reserveRO.getRentalEndDate());
-
         if (repeatDateCount > 0) {
             throw new BusinessException("conflict with reserved period");
         } else {
