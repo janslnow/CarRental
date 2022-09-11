@@ -138,7 +138,7 @@ class CarReserveServiceTest {
         Mockito.doReturn(car).when(carMapper).selectByPrimaryKey(1);
         Mockito.doReturn(null).when(carMapper).selectByPrimaryKey(Mockito.argThat(i -> i != 1));
 
-        Mockito.doReturn(1).when(rentalOrderMapper).selectRepeatDateForUpdate("2022-01-01", "2022-01-02");
+        Mockito.doReturn(1).when(rentalOrderMapper).selectRepeatDateForUpdate(1, "2022-01-01", "2022-01-02");
 
         ReserveRO reserveRO = new ReserveRO();
         reserveRO.setCarId(1);
@@ -158,7 +158,7 @@ class CarReserveServiceTest {
         Mockito.doReturn(car).when(carMapper).selectByPrimaryKey(1);
         Mockito.doReturn(null).when(carMapper).selectByPrimaryKey(Mockito.argThat(i -> i != 1));
 
-        Mockito.doReturn(0).when(rentalOrderMapper).selectRepeatDateForUpdate("2022-01-01", "2022-01-02");
+        Mockito.doReturn(0).when(rentalOrderMapper).selectRepeatDateForUpdate(1, "2022-01-01", "2022-01-02");
 
         RentalOrder rentalOrder = new RentalOrder();
         rentalOrder.setCarId(1);
