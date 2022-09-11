@@ -139,7 +139,7 @@
 
         select count(*)
         from t_rental_order
-        where rental_start_date &lt;= #{endDate} and rental_end_date >= #{startDate}
+        where car_id = #{carId} and rental_start_date &lt;= #{endDate} and rental_end_date >= #{startDate}
         for update
 
     </select>

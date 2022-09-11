@@ -22,5 +22,7 @@ public interface RentalOrderMapper {
 
     List<RentalOrder> selectByUserId(@Param("userId") Integer userId);
 
-    int selectRepeatDateForUpdate(@Param("startDate") String startDate, @Param("endDate") String endDate);
+    int selectRepeatDateForUpdate(@Param("carId") Integer carId,
+                                  @Param("startDate") String startDate,
+                                  @Param("endDate") String endDate);
 }
