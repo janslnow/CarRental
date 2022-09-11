@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.3</version>
+		<version>2.6.11</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -84,6 +84,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<configuration>
+							<outputDirectory>${basedir}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 			<!-- mybatis generator 自动生成代码插件 -->
