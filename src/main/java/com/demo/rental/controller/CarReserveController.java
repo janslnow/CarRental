@@ -17,18 +17,18 @@ import java.util.List;
 @Api(tags = "car reserve api")
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api/reserved-orders")
+@RequestMapping("/api/v1/reserved-orders")
 public class CarReserveController {
 
     private final CarReserveService carReserveService;
 
-    @GetMapping("/v1")
+    @GetMapping("/")
     @ApiOperation("get all reserved order")
     public HttpResult<List<OrderVO>> getUserReserveOrder() {
         return HttpResult.success(carReserveService.getAllReserveOrderByUserId(UserContext.getUserId()));
     }
 
-    @PostMapping("/v1")
+    @PostMapping("/")
     @ApiOperation("reserve a car")
     public HttpResult<Integer> reserveCar(@RequestBody ReserveRO reserveRO) {
         reserveRO.validate();

@@ -92,7 +92,7 @@
         select t_car.car_id, t_car.car_model, t_rental_order.rental_start_date, t_rental_order.rental_end_date
         from t_car left join t_rental_order
         on t_car.car_id = t_rental_order.car_id
-        where t_rental_order.rental_end_date is null or t_rental_order.rental_end_date >= CURRENT_DATE()
+        where t_rental_order.rental_end_date is null or t_rental_order.rental_end_date > CURRENT_DATE()
 
     </select>
 </mapper>

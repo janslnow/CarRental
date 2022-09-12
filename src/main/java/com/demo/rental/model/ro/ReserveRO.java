@@ -22,7 +22,7 @@ public class ReserveRO {
     public void validate() {
 
         if (carId == null) {
-            throw new BusinessException("param:carId don't set");
+            throw new BusinessException("Param:carId don't set");
         }
 
         Date current = new Date();
@@ -30,11 +30,11 @@ public class ReserveRO {
         Date rentalEndTimeObject = DateUtil.parseDate(rentalEndDate, DateUtil.DEFAULT_DATE_STYLE);
 
         if (current.getTime() > rentalStartTimeObject.getTime()) {
-            throw new BusinessException("rental start date can't less than current date");
+            throw new BusinessException("Rental start date can't less than or equal current date");
         }
 
         if (rentalStartTimeObject.getTime() > rentalEndTimeObject.getTime()) {
-            throw new BusinessException("rental end date can't less than rental start date");
+            throw new BusinessException("Rental end date can't less than rental start date");
         }
 
     }
