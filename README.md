@@ -7,13 +7,17 @@ This service is a simple rental car booking API service for customers to reserve
 Everyone can reserve car, but user only can choose a period that someone else didn't reserve in a same car. When use
 choose a car for a period that conflict with reserved period, it will tip 'reserve fail'.
 
+In car info list we will show reserved periods of corresponding car. 
+If rental end date of a period less than or equal current data, the period don't show.
+
 ### Demo
+
+URL: http://43.138.232.182/
 
 Note: this web demo don't implement login action, so everyone who use this demo will use a same test account.
 
 ### Technology stack
 
-* Agent: Nginx
 * Language: Java
 * Framework: SpringMVC, SpringBoot, Mybatis
 * Database: MySQL
@@ -23,6 +27,8 @@ Note: this web demo don't implement login action, so everyone who use this demo 
 
 this service include three api implement;
 
+More Detail: http://43.138.232.182:8081/swagger-ui.html
+The input and output can see swagger.
 #### 1. Get all car info;
 
 ##### URI
