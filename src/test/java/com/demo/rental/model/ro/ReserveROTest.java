@@ -18,6 +18,34 @@ class ReserveROTest {
 
         Assertions.assertThrows(BusinessException.class, reserveRO::validate);
 
+        ReserveRO reserveRO1 = new ReserveRO();
+        reserveRO1.setCarId(1);
+        reserveRO1.setRentalStartDate(null);
+        reserveRO1.setRentalEndDate("2022-01-01");
+
+        Assertions.assertThrows(BusinessException.class, reserveRO1::validate);
+
+        ReserveRO reserveRO2 = new ReserveRO();
+        reserveRO2.setCarId(null);
+        reserveRO2.setRentalStartDate("");
+        reserveRO2.setRentalEndDate("2022-01-01");
+
+        Assertions.assertThrows(BusinessException.class, reserveRO2::validate);
+
+        ReserveRO reserveRO3 = new ReserveRO();
+        reserveRO3.setCarId(null);
+        reserveRO3.setRentalStartDate("2022-01-01");
+        reserveRO3.setRentalEndDate(null);
+
+        Assertions.assertThrows(BusinessException.class, reserveRO3::validate);
+
+        ReserveRO reserveRO4 = new ReserveRO();
+        reserveRO4.setCarId(null);
+        reserveRO4.setRentalStartDate("2022-01-01");
+        reserveRO4.setRentalEndDate("");
+
+        Assertions.assertThrows(BusinessException.class, reserveRO4::validate);
+
     }
 
     @Test

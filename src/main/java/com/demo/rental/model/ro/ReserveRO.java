@@ -22,7 +22,15 @@ public class ReserveRO {
     public void validate() {
 
         if (carId == null) {
-            throw new BusinessException("Param:carId don't set");
+            throw new BusinessException("Param:carId don't empty");
+        }
+
+        if (rentalStartDate == null || rentalStartDate.length() == 0) {
+            throw new BusinessException("Param:rentalStartDate is empty");
+        }
+
+        if (rentalEndDate == null || rentalEndDate.length() == 0) {
+            throw new BusinessException("Param:rentalEndDate is empty");
         }
 
         Date current = new Date();
