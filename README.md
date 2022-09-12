@@ -2,12 +2,12 @@
 
 ### Summary
 
-This service is a simple rental car booking API service for customers to reserve a car for a period of time.
+    This service is a simple rental car booking API service for customers to reserve a car for a period of time.
 
-Everyone can reserve car, but user only can choose a period that someone else didn't reserve in a same car. When use
+    Everyone can reserve car, but user only can choose a period that someone else didn't reserve in a same car. When user
 choose a car for a period that conflict with reserved period, it will tip 'reserve fail'.
 
-In car info list we will show reserved periods of corresponding car. 
+    In car info list we will show reserved periods of corresponding car. 
 If rental end date of a period less than or equal current data, the period don't show.
 
 ### Demo
