@@ -57,6 +57,7 @@ public class CarReserveService {
         int repeatDateCount = rentalOrderMapper.selectRepeatDateForUpdate(reserveRO.getCarId(),
                 reserveRO.getRentalStartDate(), reserveRO.getRentalEndDate());
         if (repeatDateCount > 0) {
+
             throw new BusinessException("conflict with reserved period");
         } else {
 
